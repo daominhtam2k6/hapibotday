@@ -1,0 +1,173 @@
+body {
+    text-align: left; /* Căn trái */
+    background-color: #FFD1DC; /* Soft pink background */
+    font-family: 'Dancing Script', cursive;
+    overflow: hidden; /* Ẩn thanh cuộn */
+}
+
+.happy, .birthday {
+    color: #58d9d3; /* Màu chữ */
+    font-size: 4em; /* Kích thước chữ lớn hơn */
+}
+
+.letter {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: inline-block; /* Needed for the opacity transition */
+}
+
+.show {
+    opacity: 1; /* Class to show the letters */
+}
+
+img {
+    width: 500px; /* Kích thước cơ bản cho hình ảnh */
+}
+
+.cake {
+    opacity: 0; /* Khởi tạo ẩn */
+    transform: translateY(50px); /* Đưa ảnh xuống dưới */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Hiệu ứng xuất hiện */
+}
+
+.cake.show {
+    opacity: 1; /* Hiển thị khi có class 'show' */
+    transform: translateY(0); /* Đưa ảnh về vị trí gốc */
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Thời gian hiệu ứng */
+    font-size: 2em; /* Kích thước chữ lớn hơn cho đoạn văn */
+    color: #ff69b4; /* Màu chữ mới cho thẻ <p> */
+}
+
+.fade-in.show {
+    opacity: 1; /* Hiển thị khi có class 'show' */
+}
+
+/* Hiệu ứng pháo */
+.fireworks {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Không cho phép tương tác */
+}
+
+.firework {
+    position: absolute;
+    bottom: 0;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, rgb(235, 76, 238), transparent);
+    border-radius: 50%;
+    animation: shoot 1s forwards;
+}
+
+@keyframes shoot {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-500px);
+        opacity: 0;
+    }
+}
+
+/* Định dạng cho bóng bay */
+.balloon {
+    position: absolute;
+    top: 10px; /* Đặt bóng bay ở góc trên */
+    right: 10px; /* Đặt bóng bay ở góc bên phải */
+    width: 100px; /* Kích thước bóng bay */
+}
+
+/* Định dạng cho GIF */
+.mewmew-gif {
+    position: absolute;
+    bottom: 10px; /* Đặt GIF ở góc dưới */
+    right: 80px; /* Tăng giá trị này để di chuyển GIF sang phải */
+    width: 230px; /* Kích thước GIF */
+}
+
+.open-letter {
+    background-color: #f96e9a; /* Màu nền */
+    color: rgb(222, 222, 58); /* Màu chữ */
+    border: none; /* Không có viền */
+    border-radius: 80px; /* Hình dạng con nhộng */
+    padding: 10px 20px; /* Khoảng cách bên trong */
+    font-size: 1.5em; /* Kích thước chữ */
+    cursor: pointer; /* Hiệu ứng con trỏ khi hover */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+    position: absolute; /* Đặt vị trí */
+    bottom: 100px; /* Đặt khoảng cách từ dưới lên */
+    left: 50%; /* Căn giữa */
+    transform: translateX(-50%); /* Căn giữa hoàn hảo */
+    display: none; /* Ẩn ban đầu */
+}
+
+/* Hiển thị icon bức thư khi có class 'show' */
+.open-letter.show {
+    display: block; /* Hiển thị khi có class 'show' */
+}
+
+.custom-image {
+    width: 250px; 
+    height: auto; /* Giữ tỷ lệ */
+    position: absolute; /* Để kiểm soát vị trí */
+    right: 25%; /* Đặt hình ảnh ở nửa bên phải */
+    top: 4px; /* Điều chỉnh vị trí trên */
+    transform: translateX(50%); /* Căn giữa hình ảnh */
+    margin: 20px; /* Tạo khoảng cách xung quanh */
+}
+
+.custom-image1 {
+    width: 350px; /* Kích thước mới gấp đôi */
+    height: auto; /* Giữ tỷ lệ */
+    position: absolute; /* Để kiểm soát vị trí */
+    right: 50%; /* Đặt hình ảnh ở nửa bên phải */
+    top: 3px; /* Điều chỉnh vị trí trên */
+    transform: translateX(50%); /* Căn giữa hình ảnh */
+    margin: 20px; /* Tạo khoảng cách xung quanh */
+}
+
+/* Thêm class show để hiển thị hình ảnh */
+.custom-image, .custom-image1, .mewmew-gif, .balloon {
+    display: none; /* Ẩn ban đầu */
+}
+
+.custom-image.show, .custom-image1.show, .mewmew-gif.show, .balloon.show {
+    display: block; /* Hiển thị khi có class 'show' */
+}
+
+.letter-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #faf0bc;
+    border: 2px solid #58d9d3;
+    box-shadow: 0 4px 20px rgb(0, 0, 0);
+    width: 600px;
+    padding: 20px;
+    display: none; /* Ẩn ban đầu */
+    z-index: 1000; /* Đảm bảo bức thư ở trên cùng */
+}
+
+/* Điều chỉnh cho màn hình nhỏ */
+@media (max-width: 768px) {
+    .letter-container {
+        width: 90%; /* Kích thước bức thư cho màn hình nhỏ */
+        padding: 15px; /* Giảm padding */
+    }
+
+    .letter-content {
+        text-align: left; /* Căn trái nội dung */
+    }
+}
+
+.letter-content {
+    text-align: center;
+}
