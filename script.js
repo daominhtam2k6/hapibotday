@@ -81,6 +81,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Chuyển hướng nếu là thiết bị di động (bổ sung)
   if (isMobile) {
-    window.location.href = "http://your-mobile-page.com"; // Thay thế bằng URL trang web di động của bạn
+    window.location.href = "https://youtu.be/dQw4w9WgXcQ?si=uuq0f965qQsJ-My-"; // Thay thế bằng URL trang web di động của bạn
   }
 });
