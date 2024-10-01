@@ -141,7 +141,13 @@ img {
 .custom-image.show, .custom-image1.show, .mewmew-gif.show, .balloon.show {
     display: block; /* Hiển thị khi có class 'show' */
 }
-
+/* Giả sử bạn muốn điều chỉnh khi màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+    .custom-image, .custom-image1, .mewmew-gif, .balloon.show {
+      width: 60%; /* Điều chỉnh kích thước theo ý muốn */
+      height: auto; /* Giữ tỷ lệ */
+    }
+}
 .letter-container {
     position: fixed;
     top: 50%;
